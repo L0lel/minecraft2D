@@ -1,12 +1,12 @@
 <component name="libraryTable">
   <library name="lib">
     <CLASSES>
-      <root url="file://$PROJECT_DIR$/javadoc/openjfx-19.0.2.1_windows-x64_bin-sdk (1)/javafx-sdk-19.0.2.1/lib" />
+      <root url="file://$PROJECT_DIR$/javafx/openjfx-19.0.2.1_windows-x64_bin-sdk (1)/javafx-sdk-19.0.2.1/lib" />
     </CLASSES>
     <JAVADOC>
-      <root url="file://$PROJECT_DIR$/javadoc/openjfx-19.0.2.1-javadoc" />
+      <root url="file://$PROJECT_DIR$/javafx/openjfx-19.0.2.1-javadoc" />
     </JAVADOC>
     <SOURCES />
-    <jarDirectory url="file://$PROJECT_DIR$/javadoc/openjfx-19.0.2.1_windows-x64_bin-sdk (1)/javafx-sdk-19.0.2.1/lib" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/javafx/openjfx-19.0.2.1_windows-x64_bin-sdk (1)/javafx-sdk-19.0.2.1/lib" recursive="false" />
   </library>
 </component>

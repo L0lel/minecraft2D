@@ -2,7 +2,7 @@ package data;
 
 public class Block {
 
-    private char contenuto;
+    private final char contenuto;
     private boolean falls_with_gravity;
     private boolean fall_through;
 
