@@ -27,7 +27,6 @@ public class Block {
             default:
                 this.contenuto = Block.DEFAULT_CONTENT;
                 this.falls_with_gravity = true;
-                break;
         }
         this.set_fall_through();
     }
