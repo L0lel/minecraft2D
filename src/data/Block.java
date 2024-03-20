@@ -13,11 +13,11 @@ public class Block {
     public Block(int rand){
         switch(rand){
             case 0:
-                this.contenuto = 'X';
+                this.contenuto = '#';
                 this.falls_with_gravity = true;
                 break;
             case 1:
-                this.contenuto = '8';
+                this.contenuto = 'H';
                 this.falls_with_gravity = true;
                 break;
             case 2:
