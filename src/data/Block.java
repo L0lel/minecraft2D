@@ -17,11 +17,11 @@ public class Block {
                 this.falls_with_gravity = true;
                 break;
             case 1:
-                this.contenuto = '+';
+                this.contenuto = '8';
                 this.falls_with_gravity = true;
                 break;
             case 2:
-                this.contenuto = 'o';
+                this.contenuto = 'O';
                 this.falls_with_gravity = true;
                 break;
             default:

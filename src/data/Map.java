@@ -17,8 +17,8 @@ public class Map {
 
         this.content = new Block[DIM_ROWS][DIM_COLUMNS];
 
-        for(int i = 0; i < DIM_ROWS; i++){
-            for(int j = 0; j < DIM_COLUMNS; j++){
+        for(int i = DIM_ROWS; i >= 0; i--){
+            for(int j = DIM_COLUMNS; j >= 0; j--){
                 Block b;
                 if(random){
                     Random rand = new Random();
@@ -27,7 +27,7 @@ public class Map {
                 }else{
                     b = new Block();
                 }
-                this.insert_at_coords(b, i, j, false);
+                this.insert_at_coords(b, i, j, true);
             }
         }
     }
@@ -45,7 +45,7 @@ public class Map {
         if(row < 0 || row >= DIM_ROWS || col < 0 || col >= DIM_COLUMNS){
             return;
         }
-        this.content[row][col] = new Block('A');
+        this.insert_at_coords(new Block('A'), row, col, true);
     }
 
     public void swap(int x, int y){
