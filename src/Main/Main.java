@@ -9,7 +9,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        System.out.println("Inizio Main");
+        System.out.println("Questo è il lab!");
 
         Map m = new Map();
 
