@@ -1,5 +1,7 @@
 package data;
 
+import java.util.Random;
+
 public class Map {
 
     private static final int DIM_COLUMNS = 10;
@@ -8,12 +10,24 @@ public class Map {
     private Block[][] content;
 
     public Map(){
+        this(true);
+    }
+
+    public Map(boolean random){
 
         this.content = new Block[DIM_ROWS][DIM_COLUMNS];
 
         for(int i = 0; i < DIM_ROWS; i++){
             for(int j = 0; j < DIM_COLUMNS; j++){
-                this.content[i][j] = new Block();
+                Block b;
+                if(random){
+                    Random rand = new Random();
+                    int r = rand.nextInt(5);
+                    b = new Block(r);
+                }else{
+                    b = new Block();
+                }
+                this.insert_at_coords(b, i, j, false);
             }
         }
     }
@@ -23,7 +37,7 @@ public class Map {
             for(int j = 0; j < DIM_COLUMNS; j++){
                 System.out.print(this.content[i][j].display());
             }
-            System.out.println("");
+            System.out.println();
         }
     }
 
@@ -35,29 +49,34 @@ public class Map {
     }
 
     public void swap(int x, int y){
-        if(x < 0 || x >= DIM_ROWS-1 || y < 0 || y >= DIM_COLUMNS){
-            return;
-        }
         Block tmp = this.content[x][y];
         this.content[x][y] = this.content[x+1][y];
         this.content[x+1][y] = tmp;
     }
 
-    public void insert_at_coords(Block b, int x, int y){
-        if(x < 0 || x >= DIM_ROWS || y < 0 || y >= DIM_COLUMNS){
+    public void insert_at_coords(Block b, int x, int y, boolean isStackable){
+        if(x >= DIM_ROWS || y >= DIM_COLUMNS){
             return;
         }
 
         this.content[x][y] = b;
-
-        insert_rec(b, x, y);
+        if(isStackable) {
+            this.insert_rec(x, y);
+        }
     }
 
-    public void insert_rec(Block b, int x, int y){
-        if(x == DIM_COLUMNS-1 || !b.has_gravity() || !this.content[x+1][y].does_fall_through()){
+    public void insert_rec(int x, int y){
+        if(x == DIM_ROWS-1){
             return;
         }
+        if(!this.content[x][y].has_gravity()){
+            return;
+        }
+        if(!this.content[x+1][y].does_fall_through()){
+            return;
+        }
+
         this.swap(x,y);
-        this.insert_rec(b, x+1, y);
+        this.insert_rec(x+1, y);
     }
 }

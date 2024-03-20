@@ -10,18 +10,38 @@ public class Block {
     private static final boolean DEFAULT_FALLS_WITH_GRAVITY = false;
     private static final boolean DEFAULT_FALL_THROUGH = true;
 
-    public Block(char content, boolean gravity, boolean fallsThrough){
-        this.contenuto = content;
-        this.falls_with_gravity = gravity;
-        this.fall_through = fallsThrough;
+    public Block(int rand){
+        switch(rand){
+            case 0:
+                this.contenuto = 'X';
+                this.falls_with_gravity = true;
+                break;
+            case 1:
+                this.contenuto = '+';
+                this.falls_with_gravity = true;
+                break;
+            case 2:
+                this.contenuto = 'o';
+                this.falls_with_gravity = true;
+                break;
+            default:
+                this.contenuto = Block.DEFAULT_CONTENT;
+                this.falls_with_gravity = true;
+                break;
+        }
+        this.set_fall_through();
     }
 
     public Block(char content){
-        this(content, DEFAULT_FALLS_WITH_GRAVITY, DEFAULT_FALL_THROUGH);
+        this.contenuto = content;
+        this.falls_with_gravity = true;
+        this.set_fall_through();
     }
 
     public Block(){
-        this(DEFAULT_CONTENT, DEFAULT_FALLS_WITH_GRAVITY, DEFAULT_FALL_THROUGH);
+        this.contenuto = Block.DEFAULT_CONTENT;
+        this.falls_with_gravity = Block.DEFAULT_FALLS_WITH_GRAVITY;
+        this.set_fall_through();
     }
 
     public char display(){
@@ -34,5 +54,13 @@ public class Block {
 
     public boolean does_fall_through(){
         return this.fall_through;
+    }
+
+    private void set_fall_through(){
+        this.fall_through = this.isDefault();
+    }
+
+    public boolean isDefault(){
+        return this.contenuto == Block.DEFAULT_CONTENT;
     }
 }

@@ -35,7 +35,7 @@ public class Main {
         System.out.println("[y] ");
         int y_coord = myObj.nextInt();
 
-        m.insert_at_coords(new Block('T', true, false), x_coord, y_coord);
+        // m.insert_at_coords(new Block('X'), x_coord, y_coord);
 
         m.display_on_out();
 
