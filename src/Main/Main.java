@@ -1,45 +1,27 @@
 package Main;
 
-import java.util.Scanner;
+import visual.Map;
 
-import data.Block;
-import data.Map;
+import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        System.out.println("Inizio Main");
-
         Map m = new Map();
 
-        for(int i = 0; i < 5; i++){
-            System.out.print("Enter row: ");
-            Scanner myObj = new Scanner(System.in);
-            int row = myObj.nextInt();
-
-            System.out.print("Enter column: ");
-            int col = myObj.nextInt();
-
-            System.out.println("Changing: " + row + " - " + col);
-            m.change_cell(row,col);
-        }
-
         m.display_on_out();
 
-        System.out.println("Dove inserire un nuovo blocco?");
-        System.out.println("[x] ");
-        Scanner myObj = new Scanner(System.in);
-        int x_coord = myObj.nextInt();
+        Scanner obj = new Scanner(System.in);
+        System.out.println("Inserisci un blocco di sabbia");
+        System.out.print("[x] ");
+        int x_coord = obj.nextInt();
+        System.out.print("[y] ");
+        int y_coord = obj.nextInt();
 
-        System.out.println("[y] ");
-        int y_coord = myObj.nextInt();
-
-        m.insert_at_coords(new Block('X'), x_coord, y_coord, true);
+        m.change_cell(x_coord,y_coord);
 
         m.display_on_out();
-
-        System.out.println("Fine Main");
 
     }
 }
