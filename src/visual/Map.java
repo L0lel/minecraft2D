@@ -3,7 +3,7 @@ package visual;
 import data.Block;
 import data.AirBlock;
 import data.SandBlock;
-import data.WaterBlock; 
+import data.WaterBlock;
 
 public class Map {
 
