@@ -3,9 +3,7 @@ package visual;
 import data.Block;
 import data.AirBlock;
 import data.SandBlock;
-import data.WaterBlock;
-
-import java.util.Random;
+import data.WaterBlock; 
 
 public class Map {
 
