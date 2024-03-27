@@ -2,7 +2,7 @@ package data;
 
 public class IronSwordBlock extends AbstractSolidBlock{
 
-    public IronSwordBlock(){
+    protected IronSwordBlock(){
         this.blockname = "IronSword";
         this.contenuto = 'I';
         this.falls_with_gravity = true;
