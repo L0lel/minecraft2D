@@ -1,5 +1,8 @@
 package Main;
 
+import data.Furnace;
+import visual.Coords;
+import visual.MainView;
 import visual.Map;
 
 import java.util.Scanner;
@@ -9,19 +12,22 @@ public class Main {
     public static void main(String[] args) {
 
         Map m = new Map();
+        Furnace f = new Furnace();
 
-        m.display_on_out();
+        MainView view = new MainView(m, f);
+
+        view.display_on_out();
 
         Scanner obj = new Scanner(System.in);
-        System.out.println("Inserisci un blocco di sabbia");
+        System.out.println("Coordinate blocco da smeltare: ");
         System.out.print("[x] ");
         int x_coord = obj.nextInt();
         System.out.print("[y] ");
         int y_coord = obj.nextInt();
 
-        m.change_cell(x_coord,y_coord);
+        view.move_to_furnace(new Coords(x_coord, y_coord));
 
-        m.display_on_out();
+        view.display_on_out();
 
     }
 }

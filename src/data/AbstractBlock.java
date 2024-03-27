@@ -32,17 +32,18 @@ public abstract class AbstractBlock implements Block{
         return this.contenuto == AbstractBlock.DEFAULT_CONTENT;
     }
 
-//    public void toString(){
-//        System.out.println("Block: " + this.blockname);
-//        if(this.has_gravity()){
-//            System.out.println("Has gravity: Yes");
-//        }else{
-//            System.out.println("Has gravity: No");
-//        }
-//        if(this.does_fall_through()){
-//            System.out.println("Fall Through: Yes");
-//        }else{
-//            System.out.println("Fall Through: Yes");
-//        }
-//    }
+    public String toString(){
+        String info_summary = "Block: " + this.blockname;
+        if(this.has_gravity()){
+            info_summary.concat("\nHas gravity: Yes");
+        }else{
+            info_summary.concat("\nHas gravity: No");
+        }
+        if(this.does_fall_through()){
+            info_summary.concat("\nFall Through: Yes");
+        }else{
+            info_summary.concat("\nFall Through: Yes");
+        }
+        return info_summary;
+    }
 }
