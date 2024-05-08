@@ -6,7 +6,15 @@
     <JAVADOC>
       <root url="file://$PROJECT_DIR$/javafx/javafx-19.0.2.1-javadoc" />
     </JAVADOC>
-    <SOURCES />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/javafx/javafx-sdk-19.0.2.1/src.zip!/javafx.base" />
+      <root url="jar://$PROJECT_DIR$/javafx/javafx-sdk-19.0.2.1/src.zip!/javafx.controls" />
+      <root url="jar://$PROJECT_DIR$/javafx/javafx-sdk-19.0.2.1/src.zip!/javafx.fxml" />
+      <root url="jar://$PROJECT_DIR$/javafx/javafx-sdk-19.0.2.1/src.zip!/javafx.graphics" />
+      <root url="jar://$PROJECT_DIR$/javafx/javafx-sdk-19.0.2.1/src.zip!/javafx.media" />
+      <root url="jar://$PROJECT_DIR$/javafx/javafx-sdk-19.0.2.1/src.zip!/javafx.swing" />
+      <root url="jar://$PROJECT_DIR$/javafx/javafx-sdk-19.0.2.1/src.zip!/javafx.web" />
+    </SOURCES>
     <jarDirectory url="file://$PROJECT_DIR$/javafx/javafx-sdk-19.0.2.1/lib" recursive="false" />
   </library>
 </component>

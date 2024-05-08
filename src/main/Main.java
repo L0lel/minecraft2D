@@ -1,4 +1,4 @@
-package Main;
+package main;
 
 import data.Furnace;
 import utils.Coords;
