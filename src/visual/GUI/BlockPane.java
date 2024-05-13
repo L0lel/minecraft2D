@@ -31,7 +31,7 @@ public class BlockPane extends StackPane {
         initialise();
     }
 
-    private void initialise() {
+    public void initialise() {
         this.sfondo = new Rectangle(DIM_SQUARE,DIM_SQUARE);
         this.sfondo.setFill(BlockPane.chooseColorFromBlock(this.blocco));
         this.sfondo.setStroke(BLOCK_BORDER);
@@ -46,33 +46,29 @@ public class BlockPane extends StackPane {
     }
 
     private static Color chooseColorFromBlock(Block blocco) {
-        int blockInt = blocco.getBlock_value();
+        String blockType = blocco.getBlockname();
         Color result = null;
-        switch(blockInt){
-            case 0:
-                result = Color.BLACK;
+        switch(blockType){
+            case "Sand":
+                result = Color.KHAKI;
                 break;
-            case 1:
-                result = Color.WHITE;
+            case "Air":
+                result = Color.LIGHTSKYBLUE;
                 break;
-            case 2:
-                result = Color.AQUA;
+            case "Water":
+                result = Color.CORNFLOWERBLUE;
                 break;
-            case 3:
-                result = Color.GREEN;
+            case "RawIron":
+            result = Color.SILVER;
                 break;
-            case 4:
-                result = Color.BEIGE;
+            case "Glass":
+                result = Color.ALICEBLUE;
                 break;
-            case 5:
-                result = Color.AZURE;
+            case "Torch":
+                result = Color.DARKORANGE;
                 break;
-            case 6:
-                result = Color.DARKGRAY;
-                break;
-            case 7:
-                result = Color.SILVER;
-                break;
+            default:
+                result = Color.GHOSTWHITE;
         }
         return result;
     }

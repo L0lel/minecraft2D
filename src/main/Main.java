@@ -28,12 +28,7 @@ public class Main {
             int x_coord = obj.nextInt();
             System.out.print("[y] ");
             int y_coord = obj.nextInt();
-            Coords c = null;
-            try{
-                c = new Coords(x_coord,y_coord);
-            }catch (WrongCoordinatesException e){
-                System.out.println("Coords ["+ x_coord +"]" + "["+ y_coord +"]" + " not in bounds of Map");
-            }
+            Coords c = new Coords(x_coord,y_coord);
 
             System.out.println("What do you want to do?");
             System.out.println("1 - Move block directly to Furnace"); // map_to_furnace

@@ -5,6 +5,7 @@ import data.BlockFactory;
 import javafx.scene.Node;
 import javafx.scene.layout.GridPane;
 import utils.Coords;
+import utils.WrongCoordinatesException;
 import visual.textual.Map;
 
 public class MapPane extends GridPane {
@@ -33,8 +34,12 @@ public class MapPane extends GridPane {
     }
 
     public BlockPane get_block_at_coord(Coords c){
-        if(!c.isInBound()){
-            return  null;
+        try {
+            if(!c.isInBound()){
+                return  null;
+            }
+        } catch (WrongCoordinatesException e) {
+            throw new RuntimeException(e);
         }
         int row = c.getX();
         int col = c.getY();

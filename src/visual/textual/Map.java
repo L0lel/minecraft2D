@@ -9,8 +9,8 @@ import java.util.Random;
 
 public class Map {
 
-    public static final int DIM_COLUMNS = 32;
-    public static final int DIM_ROWS = 9;
+    public static final int DIM_COLUMNS = 15;
+    public static final int DIM_ROWS = 10;
 
     private static final int RANDOM_BLOCK_TO_ADD = 32;
 
@@ -23,18 +23,12 @@ public class Map {
         for(int i = DIM_ROWS-1; i >= 0; i--){
             for(int j = DIM_COLUMNS-1; j >= 0; j--){
 
-                Coords c = null;
-                try{
-                    c = new Coords(i,j);
-                }catch (WrongCoordinatesException e){
-                    System.out.println("Coords ["+ i +"]" + "["+ j +"]" + " not in bounds of Map");
-                }
-
+                Coords c = new Coords(i,j);
                 this.insert_at_coords(BlockFactory.air_block(), c, true);
             }
         }
 
-        this.addRiver();
+        this.addSea();
 
         Random rand = new Random();
         for(int i = 0; i < RANDOM_BLOCK_TO_ADD; i++){
@@ -47,13 +41,7 @@ public class Map {
             int row = rand.nextInt(DIM_ROWS);
             int col = rand.nextInt(DIM_COLUMNS);
 
-            Coords c = null;
-            try{
-                c = new Coords(row,col);
-            }catch (WrongCoordinatesException e){
-                System.out.println("Coords ["+ row +"]" + "["+ col +"]" + " not in bounds of Map");
-            }
-
+            Coords c = new Coords(row,col);
             this.insert_at_coords(b, c, true);
         }
     }
@@ -61,12 +49,7 @@ public class Map {
     private void addRowsOfWater(){
         for(int i = 0; i < DIM_COLUMNS; i++){
 
-            Coords c = null;
-            try{
-                c = new Coords(0,i);
-            }catch (WrongCoordinatesException e){
-                System.out.println("Coords ["+ "0" +"]" + "["+ i +"]" + " not in bounds of Map");
-            }
+            Coords c = new Coords(0,i);
 
             this.insert_at_coords(BlockFactory.water_block(), c, true);
         }
@@ -145,12 +128,7 @@ public class Map {
 
         this.swap(c);
 
-        Coords c1 = null;
-        try{
-            c1 = new Coords(c.getX()+1,c.getY());
-        }catch (WrongCoordinatesException e){
-            System.out.println("Coords ["+ (c.getX()+1) +"]" + "["+ c.getY() +"]" + " not in bounds of Map");
-        }
+        Coords c1 = new Coords(c.getX()+1,c.getY());
 
         this.insert_rec(c1);
     }
@@ -186,12 +164,7 @@ public class Map {
     private void checkGravity(Coords c) {
 
         if(c.getX()-1 >= 0){
-            Coords c1 = null;
-            try{
-                c1 = new Coords(c.getX()-1, c.getY());
-            }catch (WrongCoordinatesException e){
-                System.out.println("Coords ["+ (c.getX()-1) +"]" + "["+ c.getY() +"]" + " not in bounds of Map");
-            }
+            Coords c1 = new Coords(c.getX()-1, c.getY());
 
             Block checkedBlock = this.content[c1.getX()][c1.getY()];
 
