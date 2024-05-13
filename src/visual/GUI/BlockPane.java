@@ -47,30 +47,16 @@ public class BlockPane extends StackPane {
 
     private static Color chooseColorFromBlock(Block blocco) {
         String blockType = blocco.getBlockname();
-        Color result = null;
-        switch(blockType){
-            case "Sand":
-                result = Color.KHAKI;
-                break;
-            case "Air":
-                result = Color.LIGHTSKYBLUE;
-                break;
-            case "Water":
-                result = Color.CORNFLOWERBLUE;
-                break;
-            case "RawIron":
-            result = Color.SILVER;
-                break;
-            case "Glass":
-                result = Color.ALICEBLUE;
-                break;
-            case "Torch":
-                result = Color.DARKORANGE;
-                break;
-            default:
-                result = Color.GHOSTWHITE;
-        }
-        return result;
+        Color result = switch (blockType) {
+            case "Sand" -> Color.KHAKI;
+            case "Air" -> Color.LIGHTSKYBLUE;
+            case "Water" -> Color.CORNFLOWERBLUE;
+            case "RawIron" -> Color.SILVER;
+            case "Glass" -> Color.ALICEBLUE;
+            case "Torch" -> Color.DARKORANGE;
+            default -> Color.GHOSTWHITE;
+        };
+                return result;
     }
 
     public void changeBlock(Block b){
