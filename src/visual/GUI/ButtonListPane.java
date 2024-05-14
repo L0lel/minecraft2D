@@ -1,5 +1,7 @@
 package visual.GUI;
 
+import com.sun.tools.javac.Main;
+import controller.MainSimpleController;
 import data.BlockFactory;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -24,9 +26,9 @@ public class ButtonListPane extends VBox {
 
     Button toggle_inv_sorting_button;
 
-    private final MainGUI mc;
+    MainSimpleController mc;
 
-    public ButtonListPane(MainGUI m){
+    public ButtonListPane(MainSimpleController m){
         super();
 
         mc = m;
@@ -60,8 +62,7 @@ public class ButtonListPane extends VBox {
         test_button.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                //BlockPane bp = (BlockPane) MapPane.getElementAt(mc.getMainGUI().getMapPane(),0,0);
-                BlockPane bp = (BlockPane) MapPane.getElementAt(mc.getMapPane(),0,0);
+                BlockPane bp = (BlockPane) MapPane.getElementAt(mc.getMainGUI().getMapPane(),0,0);
                 bp.changeBlock(BlockFactory.sand_block());
                 bp.initialise();
             }
@@ -74,7 +75,8 @@ public class ButtonListPane extends VBox {
         toggle_inv_sorting_button.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                //TODO
+                mc.toggle_inventory_comparator();
+                mc.redraw();
             }
         });
     }
@@ -84,8 +86,8 @@ public class ButtonListPane extends VBox {
         move_to_inventory_button.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                //mc.move_from_inventory_to_furnace();
-                //mc.redraw();
+                mc.furnace_to_inv();
+                mc.redraw();
             }
         });
     }
@@ -96,8 +98,8 @@ public class ButtonListPane extends VBox {
             @Override
             public void handle(ActionEvent event) {
                 int index = Integer.parseInt(inventory_index_text.getText());
-                //mc.move_from_furnace_to_inventory
-                //mc.redraw();
+                mc.inv_to_furnace(index);
+                mc.redraw();
             }
         });
     }
@@ -107,8 +109,8 @@ public class ButtonListPane extends VBox {
         smelt_button.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                //mc.smelt();
-                //mc.redraw();
+                mc.smelt();
+                mc.redraw();
             }
         });
     }
@@ -121,8 +123,8 @@ public class ButtonListPane extends VBox {
                 int row = Integer.parseInt(pick_row_text.getText());
                 int col = Integer.parseInt(pick_col_text.getText());
                 Coords c = new Coords(row,col);
-                //mc.pick_block(c);
-                //mc.redraw();
+                mc.pick_up_block(c);
+                mc.redraw();
             }
         });
     }

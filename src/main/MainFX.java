@@ -1,5 +1,8 @@
 package main;
 
+import controller.MainSimpleController;
+import controller.SimpleController;
+import data.Furnace;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
@@ -11,6 +14,8 @@ import visual.GUI.FurnacePane;
 import visual.GUI.InventoryPane;
 import visual.GUI.MainGUI;
 import visual.GUI.MapPane;
+import visual.textual.Inventory;
+import visual.textual.MainView;
 import visual.textual.Map;
 
 public class MainFX extends Application {
@@ -23,18 +28,9 @@ public class MainFX extends Application {
     public void start(Stage primaryStage) throws Exception {
         primaryStage.setTitle("Minecraft now in 2D!");
 
-        MainGUI view = new MainGUI();
+        MainSimpleController main_controller = new MainSimpleController(new MainView());
 
-//        Map m = new Map();
-//        MapPane mp = view.getMapPane();
-//
-//        for(int i = 0; i < Map.DIM_ROWS; i++){
-//            for(int j = 0; j < Map.DIM_COLUMNS; j++){
-//                mp.setCell(new Coords(i,j), m.content[i][j]);
-//            }
-//        }
-
-        Scene scene = new Scene(view);
+        Scene scene = new Scene(main_controller.getMainGUI());
         scene.setFill(Color.ALICEBLUE);
         primaryStage.setScene(scene);
         primaryStage.show();

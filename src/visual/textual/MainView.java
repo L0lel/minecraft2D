@@ -10,10 +10,10 @@ public class MainView {
     private Furnace f;
     private Inventory i;
 
-    public MainView(Map m, Furnace f, Inventory i){
-        this.m = m;
-        this.f = f;
-        this.i = i;
+    public MainView(){
+        this.m = new Map();
+        this.f = new Furnace();
+        this.i = new Inventory();
     }
 
     public void display_on_out(){
@@ -43,13 +43,17 @@ public class MainView {
     }
 
     public void furnace_to_inv(){
-        this.i.add_block(this.f.getInput());
+        if(!(this.f.getInput() instanceof NullBlock)){
+            this.i.add_block(this.f.getInput());
+        }
         this.f.setInput(BlockFactory.null_block());
     }
 
     public void smelt(){
         Block b = this.f.smelt();
-        this.i.add_block(b);
+        if(!(b instanceof NullBlock)) {
+            this.i.add_block(b);
+        }
     }
 
     public void pick_up_block(Coords c){
@@ -62,4 +66,15 @@ public class MainView {
 
     public void toggle_inventory_comparator(){this.i.toggleComparatorMode();}
 
+    public Furnace getFurnace() {
+        return this.f;
+    }
+
+    public Inventory getInventory() {
+        return this.i;
+    }
+
+    public Map getMap(){
+        return this.m;
+    }
 }

@@ -18,7 +18,7 @@ public class InventoryPane extends HBox {
         super.getChildren().add(inventory);
     }
 
-    private void addText(){
+    public void addText(){
         i = new Text("Inventory: ");
         StackPane sp = new StackPane();
         Rectangle r = new Rectangle(BlockPane.DIM_SQUARE, BlockPane.DIM_SQUARE);

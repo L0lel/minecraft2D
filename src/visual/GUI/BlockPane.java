@@ -56,7 +56,7 @@ public class BlockPane extends StackPane {
             case "Torch" -> Color.DARKORANGE;
             default -> Color.GHOSTWHITE;
         };
-                return result;
+        return result;
     }
 
     public void changeBlock(Block b){

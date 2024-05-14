@@ -19,7 +19,7 @@ public class FurnacePane extends VBox {
         super.getChildren().add(output);
     }
 
-    private void addText(){
+    public void addText(){
         Text f = new Text("Furnace: ");
         super.getChildren().add(f);
     }

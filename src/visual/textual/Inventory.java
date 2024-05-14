@@ -60,4 +60,8 @@ public class Inventory {
         this.blockComparator = new AlphabeticalBlockComparator();
         this.sort();
     }
+
+    public Iterator<Block> getInventory(){
+        return this.inventory.iterator();
+    }
 }

@@ -13,11 +13,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Map m = new Map();
-        Furnace f = new Furnace();
-        Inventory i = new Inventory();
-
-        MainView view = new MainView(m, f, i);
+        MainView view = new MainView();
         view.display_on_out();
 
         boolean loop = true;

@@ -1,5 +1,6 @@
 package visual.GUI;
 
+import controller.MainSimpleController;
 import javafx.scene.layout.BorderPane;
 
 public class MainGUI extends BorderPane {
@@ -9,11 +10,11 @@ public class MainGUI extends BorderPane {
     private InventoryPane inv_pane;
     private FurnacePane furnace_pane;
 
-    public MainGUI(){
+    public MainGUI(MainSimpleController controller){
         super();
         map_pane = new MapPane();
         super.setCenter(map_pane);
-        button_list = new ButtonListPane(this);
+        button_list = new ButtonListPane(controller);
         super.setLeft(button_list);
         inv_pane = new InventoryPane();
         super.setBottom(inv_pane);
