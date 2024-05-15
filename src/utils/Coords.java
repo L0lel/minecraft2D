@@ -1,6 +1,6 @@
 package utils;
 
-import visual.textual.Map;
+import data.model.Map;
 
 public class Coords {
 

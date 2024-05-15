@@ -1,8 +1,8 @@
-package controller;
+package controller.simple;
 
 import utils.Coords;
 import visual.GUI.MapPane;
-import visual.textual.Map;
+import data.model.Map;
 
 public class MapSimpleController implements SimpleController{
 

@@ -1,7 +1,10 @@
 package visual.GUI;
 
-import controller.MainSimpleController;
+import controller.simple.MainSimpleController;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.paint.Color;
 
 public class MainGUI extends BorderPane {
 
@@ -9,6 +12,8 @@ public class MainGUI extends BorderPane {
     private ButtonListPane button_list;
     private InventoryPane inv_pane;
     private FurnacePane furnace_pane;
+
+    private final Color bg_color = Color.GAINSBORO;
 
     public MainGUI(MainSimpleController controller){
         super();
@@ -20,6 +25,7 @@ public class MainGUI extends BorderPane {
         super.setBottom(inv_pane);
         furnace_pane = new FurnacePane();
         super.setRight(furnace_pane);
+        super.setBackground(new Background(new BackgroundFill(bg_color, null, null)));
     }
 
     public MapPane getMapPane() {

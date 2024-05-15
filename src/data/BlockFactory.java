@@ -1,5 +1,7 @@
 package data;
 
+import data.blocks.*;
+
 public class BlockFactory {
 
     public static AirBlock air_block(){

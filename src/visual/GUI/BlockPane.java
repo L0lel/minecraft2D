@@ -1,6 +1,6 @@
 package visual.GUI;
 
-import data.Block;
+import data.blocks.Block;
 import javafx.geometry.Pos;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;

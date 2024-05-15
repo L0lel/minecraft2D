@@ -1,15 +1,15 @@
-package controller;
+package controller.simple;
 
 import utils.Coords;
 import visual.GUI.MainGUI;
-import visual.textual.MainView;
+import data.model.MainFunctionalities;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 
 public class MainSimpleController implements SimpleController{
 
-    MainView view;
+    MainFunctionalities view;
     MainGUI gui;
 
     ArrayList<SimpleController> controllersList;
@@ -17,7 +17,7 @@ public class MainSimpleController implements SimpleController{
     InventorySimpleController inv_controller;
     FurnaceSimpleController furnace_controller;
 
-    public MainSimpleController(MainView v){
+    public MainSimpleController(MainFunctionalities v){
         this.view = v;
         this.gui = new MainGUI(this);
 
@@ -32,8 +32,6 @@ public class MainSimpleController implements SimpleController{
     }
 
     public void redraw() {
-        view.display_on_out();
-
         Iterator<SimpleController> i = this.controllersList.iterator();
         while (i.hasNext()){
             i.next().redraw();

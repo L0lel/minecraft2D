@@ -1,6 +1,6 @@
 package utils;
 
-import data.Block;
+import data.blocks.Block;
 
 import java.util.Comparator;
 

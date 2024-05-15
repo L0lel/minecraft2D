@@ -1,12 +1,12 @@
 package visual.GUI;
 
-import data.Block;
+import data.blocks.Block;
 import data.BlockFactory;
 import javafx.scene.Node;
 import javafx.scene.layout.GridPane;
 import utils.Coords;
 import utils.WrongCoordinatesException;
-import visual.textual.Map;
+import data.model.Map;
 
 public class MapPane extends GridPane {
 

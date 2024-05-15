@@ -1,6 +1,6 @@
-package controller;
+package controller.simple;
 
-import data.Furnace;
+import data.model.Furnace;
 import visual.GUI.BlockPane;
 import visual.GUI.FurnacePane;
 

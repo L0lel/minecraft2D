@@ -1,10 +1,9 @@
-package controller;
+package controller.simple;
 
-import data.Block;
-import javafx.scene.text.Text;
+import data.blocks.Block;
 import visual.GUI.BlockPane;
 import visual.GUI.InventoryPane;
-import visual.textual.Inventory;
+import data.model.Inventory;
 
 import java.util.Iterator;
 

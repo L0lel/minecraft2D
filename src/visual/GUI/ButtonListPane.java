@@ -1,10 +1,10 @@
 package visual.GUI;
 
-import com.sun.tools.javac.Main;
-import controller.MainSimpleController;
+import controller.simple.MainSimpleController;
 import data.BlockFactory;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
@@ -35,8 +35,10 @@ public class ButtonListPane extends VBox {
 
         pick_block_hbox = new HBox();
         pick_row_text = new TextField();
+        pick_row_text.setMaxSize(32,10);
         pick_block_hbox.getChildren().add(pick_row_text);
         pick_col_text = new TextField();
+        pick_col_text.setMaxSize(32,10);
         pick_block_hbox.getChildren().add(pick_col_text);
         create_pick_button();
         pick_block_hbox.getChildren().add(pick_block_button);
@@ -44,6 +46,7 @@ public class ButtonListPane extends VBox {
 
         move_to_furnace_hbox = new HBox();
         inventory_index_text = new TextField();
+        inventory_index_text.setMaxSize(32,10);
         move_to_furnace_hbox.getChildren().add(inventory_index_text);
         create_move_to_furnace_button();
         move_to_furnace_hbox.getChildren().add(move_to_furnace_button);
@@ -68,6 +71,8 @@ public class ButtonListPane extends VBox {
             }
         });
         super.getChildren().add(test_button);
+
+        super.setAlignment(Pos.TOP_CENTER);
     }
 
     private void create_toggle_inventory_sorting() {
@@ -76,7 +81,6 @@ public class ButtonListPane extends VBox {
             @Override
             public void handle(ActionEvent event) {
                 mc.toggle_inventory_comparator();
-                mc.redraw();
             }
         });
     }
@@ -87,7 +91,6 @@ public class ButtonListPane extends VBox {
             @Override
             public void handle(ActionEvent event) {
                 mc.furnace_to_inv();
-                mc.redraw();
             }
         });
     }
@@ -99,7 +102,6 @@ public class ButtonListPane extends VBox {
             public void handle(ActionEvent event) {
                 int index = Integer.parseInt(inventory_index_text.getText());
                 mc.inv_to_furnace(index);
-                mc.redraw();
             }
         });
     }
@@ -110,22 +112,17 @@ public class ButtonListPane extends VBox {
             @Override
             public void handle(ActionEvent event) {
                 mc.smelt();
-                mc.redraw();
             }
         });
     }
 
     private void create_pick_button(){
         pick_block_button = new Button("Pick Block");
-        pick_block_button.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                int row = Integer.parseInt(pick_row_text.getText());
-                int col = Integer.parseInt(pick_col_text.getText());
-                Coords c = new Coords(row,col);
-                mc.pick_up_block(c);
-                mc.redraw();
-            }
+        pick_block_button.setOnAction(event -> {
+            int row = Integer.parseInt(pick_row_text.getText());
+            int col = Integer.parseInt(pick_col_text.getText());
+            Coords c = new Coords(row,col);
+            mc.pick_up_block(c);
         });
     }
 }

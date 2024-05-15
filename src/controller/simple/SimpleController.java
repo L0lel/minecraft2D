@@ -1,4 +1,4 @@
-package controller;
+package controller.simple;
 
 public interface SimpleController {
 
