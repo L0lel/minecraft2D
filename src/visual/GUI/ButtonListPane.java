@@ -62,13 +62,10 @@ public class ButtonListPane extends VBox {
         super.getChildren().add(toggle_inv_sorting_button);
 
         Button test_button = new Button("Test");
-        test_button.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                BlockPane bp = (BlockPane) MapPane.getElementAt(mc.getMainGUI().getMapPane(),0,0);
-                bp.changeBlock(BlockFactory.sand_block());
-                bp.initialise();
-            }
+        test_button.setOnAction(actionEvent -> {
+            BlockPane bp = (BlockPane) MapPane.getElementAt(mc.getMainGUI().getMapPane(),0,0);
+            bp.changeBlock(BlockFactory.sand_block());
+            bp.initialise();
         });
         super.getChildren().add(test_button);
 

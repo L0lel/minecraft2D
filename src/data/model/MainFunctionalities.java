@@ -32,8 +32,12 @@ public class MainFunctionalities {
     public void inv_to_furnace(int index){
         try{
             SmeltableBlock b = this.i.get_smeltable_item(index);
-            this.i.pop_item(index);
-            this.f.setInput(b);
+            if(this.f.getInput() instanceof NullBlock){
+                this.i.pop_item(index);
+                this.f.setInput(b);
+            }else{
+                System.out.println("Furnace is already full");
+            }
         }catch(BlockErrorException e){
             System.out.println("Block selected not smeltable");
         }

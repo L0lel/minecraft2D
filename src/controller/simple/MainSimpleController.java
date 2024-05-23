@@ -22,8 +22,8 @@ public class MainSimpleController implements SimpleController{
         this.gui = new MainGUI(this);
 
         map_controller = new MapSimpleController(view.getMap(), gui.getMapPane());
-        inv_controller = new InventorySimpleController(view.getInventory(), gui.getInventoryPane());
-        furnace_controller = new FurnaceSimpleController(view.getFurnace(), gui.getFurnacePane());
+        inv_controller = new InventorySimpleController(view.getInventory(), gui.getInventoryPane(), this);
+        furnace_controller = new FurnaceSimpleController(view.getFurnace(), gui.getFurnacePane(), this);
 
         controllersList = new ArrayList<SimpleController>();
         controllersList.add(map_controller);

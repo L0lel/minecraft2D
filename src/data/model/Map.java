@@ -35,7 +35,7 @@ public class Map {
         Random rand = new Random();
         for(int i = 0; i < RANDOM_BLOCK_TO_ADD; i++){
             Block b;
-            if(rand.nextInt(RANDOM_BLOCK_TO_ADD) < RANDOM_BLOCK_TO_ADD/2){
+            if(rand.nextInt(RANDOM_BLOCK_TO_ADD) < RANDOM_BLOCK_TO_ADD/2) {
                 b = BlockFactory.sand_block();
             }else{
                 b = BlockFactory.raw_iron_block();
