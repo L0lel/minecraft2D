@@ -2,6 +2,8 @@ package utils;
 
 import data.model.Map;
 
+import java.util.Random;
+
 public class Coords {
 
     private int x;
@@ -31,5 +33,12 @@ public class Coords {
 
     public int getY() {
         return this.y;
+    }
+
+    public static Coords randomCoords() {
+        Random rand = new Random();
+        int r = rand.nextInt(Map.DIM_ROWS);
+        int c = rand.nextInt(Map.DIM_COLUMNS);
+        return new Coords(r,c);
     }
 }

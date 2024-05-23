@@ -19,6 +19,10 @@ public class MainFunctionalities {
         this.i = new Inventory();
     }
 
+    public void random_block_at_coords(Coords c){
+        m.add_random_block(c);
+    }
+
     public void map_to_furnace(Coords c){
         try{
             SmeltableBlock sb = this.m.getSmeltableBlock(c);
@@ -50,11 +54,15 @@ public class MainFunctionalities {
         this.f.setInput(BlockFactory.null_block());
     }
 
-    public void smelt(){
-        Block b = this.f.smelt();
-        if(!(b instanceof NullBlock)) {
-            this.i.add_block(b);
+    public void furnace_output_to_inv(){
+        if(!(this.f.getOutput() instanceof NullBlock)){
+            this.i.add_block(this.f.getOutput());
         }
+        this.f.resetOutput();
+    }
+
+    public void smelt(){
+        this.f.smelt();
     }
 
     public void pick_up_block(Coords c){

@@ -38,10 +38,15 @@ public class MainSimpleController implements SimpleController{
         }
     }
 
+    public void add_random_block(){
+        Coords c = Coords.randomCoords();
+        this.view.random_block_at_coords(c);
+        map_controller.redraw();
+    }
+
     public void smelt(){
         this.view.smelt();
         furnace_controller.redraw();
-        inv_controller.redraw();
     }
 
     public void inv_to_furnace(int index){
@@ -52,6 +57,12 @@ public class MainSimpleController implements SimpleController{
 
     public void furnace_to_inv(){
         this.view.furnace_to_inv();
+        furnace_controller.redraw();
+        inv_controller.redraw();
+    }
+
+    public void furnace_output_to_inv(){
+        this.view.furnace_output_to_inv();
         furnace_controller.redraw();
         inv_controller.redraw();
     }

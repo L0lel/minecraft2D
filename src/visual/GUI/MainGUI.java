@@ -1,11 +1,15 @@
 package visual.GUI;
 
 import controller.simple.MainSimpleController;
+import javafx.event.EventHandler;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
 import visual.GUI.handlers.BlockPaneClickHandlerFactory;
+
+
 
 public class MainGUI extends BorderPane {
 
@@ -34,7 +38,27 @@ public class MainGUI extends BorderPane {
 
         super.setBackground(new Background(new BackgroundFill(bg_color, null, null)));
 
-
+        super.addEventHandler(KeyEvent.KEY_PRESSED, new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent keyEvent) {
+                switch (keyEvent.getCode()) {
+                    case S:
+                        controller.toggle_inventory_comparator();
+                        break;
+                    case N:
+                        controller.add_random_block();
+                        break;
+                    case R:
+                        for(int i = 0 ; i < 10 ; i++){
+                            controller.add_random_block();
+                        }
+                        break;
+                    default:
+                        System.out.println("Key pressed is not bound to any action");
+                        break;
+                }
+            }
+        });
     }
 
     public MapPane getMapPane() {

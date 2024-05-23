@@ -65,11 +65,15 @@ public class Map {
         for(int i = 0; i < 3; i++) this.addRowsOfWater();
     }
 
-    public void change_cell(Coords c){
+    public void change_cell_with_sand(Coords c){
         if(c.getX() < 0 || c.getX() >= DIM_ROWS || c.getY() < 0 || c.getY() >= DIM_COLUMNS){
             return;
         }
         this.insert_at_coords(BlockFactory.sand_block(), c, true);
+    }
+
+    public void add_random_block(Coords c){
+        this.insert_at_coords(BlockFactory.random_block(), c, true);
     }
 
     public void swap(Coords c){
