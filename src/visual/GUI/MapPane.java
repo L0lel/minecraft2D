@@ -7,7 +7,8 @@ import javafx.scene.Node;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import utils.Coords;
-import utils.WrongCoordinatesException;
+import utils.alerts.AlertMessage;
+import utils.exceptions.WrongCoordinatesException;
 import data.model.Map;
 import visual.GUI.clickableBlockPanes.ExternalClickableBlockPane;
 import visual.GUI.handlers.BlockPaneClickHandlerFactory;
@@ -45,6 +46,7 @@ public class MapPane extends GridPane {
                 return  null;
             }
         } catch (WrongCoordinatesException e) {
+            new AlertMessage(e, "Coordinates not in bound of map");
             throw new RuntimeException(e);
         }
         int row = c.getX();

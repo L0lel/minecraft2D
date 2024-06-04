@@ -4,7 +4,7 @@ import data.*;
 import data.blocks.Block;
 import data.blocks.SmeltableBlock;
 import data.blocks.TorchBlock;
-import utils.BlockErrorException;
+import utils.exceptions.BlockErrorException;
 import utils.Coords;
 
 import java.util.Random;
@@ -35,11 +35,18 @@ public class Map {
         Random rand = new Random();
         for(int i = 0; i < RANDOM_BLOCK_TO_ADD; i++){
             Block b;
-            if(rand.nextInt(RANDOM_BLOCK_TO_ADD) < RANDOM_BLOCK_TO_ADD/2) {
+
+            int rand_int = rand.nextInt(RANDOM_BLOCK_TO_ADD);
+            if(rand_int < 3*(RANDOM_BLOCK_TO_ADD/4)){
                 b = BlockFactory.sand_block();
             }else{
-                b = BlockFactory.raw_iron_block();
+                if(rand_int <= 7*(RANDOM_BLOCK_TO_ADD/8)){
+                    b = BlockFactory.raw_iron_block();
+                }else{
+                    b = BlockFactory.torch_block();
+                }
             }
+
             int row = rand.nextInt(DIM_ROWS);
             int col = rand.nextInt(DIM_COLUMNS);
 

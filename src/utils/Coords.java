@@ -1,6 +1,8 @@
 package utils;
 
 import data.model.Map;
+import utils.alerts.AlertMessage;
+import utils.exceptions.WrongCoordinatesException;
 
 import java.util.Random;
 
@@ -15,7 +17,7 @@ public class Coords {
         try{
             isInBound();
         }catch (WrongCoordinatesException e){
-            System.out.println("Coordinates not in bound of map");
+            new AlertMessage(e, "Coordinates not in bound of map");
         }
     }
 

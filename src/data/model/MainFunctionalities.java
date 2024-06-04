@@ -1,11 +1,13 @@
 package data.model;
 
 import data.*;
-import data.blocks.Block;
 import data.blocks.NullBlock;
 import data.blocks.SmeltableBlock;
-import utils.BlockErrorException;
+import utils.alerts.AlertMessage;
+import utils.exceptions.BlockErrorException;
 import utils.Coords;
+
+import java.util.ArrayList;
 
 public class MainFunctionalities {
 
@@ -29,7 +31,7 @@ public class MainFunctionalities {
             this.f.setInput(sb);
             m.insert_at_coords(BlockFactory.air_block(), c, true);
         }catch (BlockErrorException e) {
-            System.out.println("Block selected not smeltable");
+            new AlertMessage(e, "Block selected not smeltable");
         }
     }
 
@@ -40,10 +42,10 @@ public class MainFunctionalities {
                 this.i.pop_item(index);
                 this.f.setInput(b);
             }else{
-                System.out.println("Furnace is already full");
+                new AlertMessage(new BlockErrorException(), "Furnace is already full");
             }
         }catch(BlockErrorException e){
-            System.out.println("Block selected not smeltable");
+            new AlertMessage(e, "Block selected not smeltable");
         }
     }
 
@@ -69,7 +71,7 @@ public class MainFunctionalities {
         try{
             this.i.add_block(this.m.givePickable(c));
         }catch (BlockErrorException e){
-            System.out.println("Block selected not pickable");
+            new AlertMessage(e, "Block selected not pickable");
         }
     }
 

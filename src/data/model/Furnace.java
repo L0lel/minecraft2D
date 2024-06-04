@@ -4,6 +4,8 @@ import data.BlockFactory;
 import data.blocks.Block;
 import data.blocks.NullBlock;
 import data.blocks.SmeltableBlock;
+import utils.alerts.AlertMessage;
+import utils.exceptions.BlockErrorException;
 
 public class Furnace {
 
@@ -25,7 +27,7 @@ public class Furnace {
             this.output = this.input.smelt();
             this.setInput(BlockFactory.null_block());
         }else{
-            System.out.println("Cannot smelt because furnace output is not empty");
+            new AlertMessage(new BlockErrorException(), "Cannot smelt because furnace output is not empty");
         }
     }
 

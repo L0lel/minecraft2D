@@ -2,9 +2,9 @@ package data.model;
 
 import data.blocks.Block;
 import data.blocks.SmeltableBlock;
-import utils.AlphabeticalBlockComparator;
-import utils.BlockComparator;
-import utils.BlockErrorException;
+import utils.comparators.AlphabeticalBlockComparator;
+import utils.comparators.BlockComparator;
+import utils.exceptions.BlockErrorException;
 
 import java.util.*;
 
